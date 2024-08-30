@@ -1,0 +1,5 @@
+boto
+PyGitHub
+psycopg2-binary
+sqlalchemy 
+python-dotenv
