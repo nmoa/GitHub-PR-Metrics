@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import create_engine, Column, Integer, String, DateTime
+from sqlalchemy import create_engine, Column, Integer, String, DateTime, BigInteger
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -21,7 +21,7 @@ Base = declarative_base()
 class PullRequest(Base):
     __tablename__ = "pull_requests"
 
-    id = Column(Integer, primary_key=True)
+    id = Column(BigInteger, primary_key=True)
     repository = Column(String)
     number = Column(Integer)
     title = Column(String)
@@ -36,12 +36,12 @@ class PullRequest(Base):
 class Comment(Base):
     __tablename__ = "comments"
 
-    comment_id = Column(Integer, primary_key=True)
+    comment_id = Column(BigInteger, primary_key=True)
     assignee = Column(String)
     commenter = Column(String)
     body = Column(String)
     created_at = Column(DateTime)
-    pull_id = Column(Integer)
+    pull_id = Column(BigInteger)
 
 
 def connect_db():
